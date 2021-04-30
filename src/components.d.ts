@@ -6,6 +6,17 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface Admgold24kPersonalCard {
+        "firstName": string;
+        "lastName": string;
+        "photo": string;
+        "resume": string;
+        "role": string;
+    }
+    interface Admgold24kVideoPlayer {
+        "provider": string;
+        "source": string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -22,6 +33,18 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLAdmgold24kPersonalCardElement extends Components.Admgold24kPersonalCard, HTMLStencilElement {
+    }
+    var HTMLAdmgold24kPersonalCardElement: {
+        prototype: HTMLAdmgold24kPersonalCardElement;
+        new (): HTMLAdmgold24kPersonalCardElement;
+    };
+    interface HTMLAdmgold24kVideoPlayerElement extends Components.Admgold24kVideoPlayer, HTMLStencilElement {
+    }
+    var HTMLAdmgold24kVideoPlayerElement: {
+        prototype: HTMLAdmgold24kVideoPlayerElement;
+        new (): HTMLAdmgold24kVideoPlayerElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -29,10 +52,23 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "admgold24k-personal-card": HTMLAdmgold24kPersonalCardElement;
+        "admgold24k-video-player": HTMLAdmgold24kVideoPlayerElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
+    interface Admgold24kPersonalCard {
+        "firstName"?: string;
+        "lastName"?: string;
+        "photo"?: string;
+        "resume"?: string;
+        "role"?: string;
+    }
+    interface Admgold24kVideoPlayer {
+        "provider"?: string;
+        "source"?: string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -48,6 +84,8 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface IntrinsicElements {
+        "admgold24k-personal-card": Admgold24kPersonalCard;
+        "admgold24k-video-player": Admgold24kVideoPlayer;
         "my-component": MyComponent;
     }
 }
@@ -55,6 +93,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "admgold24k-personal-card": LocalJSX.Admgold24kPersonalCard & JSXBase.HTMLAttributes<HTMLAdmgold24kPersonalCardElement>;
+            "admgold24k-video-player": LocalJSX.Admgold24kVideoPlayer & JSXBase.HTMLAttributes<HTMLAdmgold24kVideoPlayerElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
