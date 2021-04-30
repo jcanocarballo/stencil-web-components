@@ -5,16 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
     <title>Stencil Component Starter</title>
 
+    <link rel="stylesheet" href="/build/stencil-web-components.css">
     <script type="module" src="/build/stencil-web-components.esm.js"></script>
     <script nomodule src="/build/stencil-web-components.js"></script>
+    <!-- <script type="module" src="http://10.60.63.37:3000/webcomponents/core/prendario/v1/k-dependencias.esm.js"></script>    
+    <script nomodule src="http://10.60.63.37:3000/webcomponents/core/prendario/v1/k-dependencias.js"></script> -->
+    <!-- <script type="module" src="http://10.10.58.100/LakinWeb/Login/www/build/k-dependencias.esm.js"></script>
+    <script nomodule src="http://10.10.58.100/LakinWeb/Login/www/build/k-dependencias.js"></script> -->
   </head>
   <body>
-    <admgold24k-personal-card
-      first-name="Julian"
-      last-name="Cano Carballo"
-      resume="Yo soy BATMAN!!!"
-      photo= "https://randomuser.me/api/portraits/men/65.jpg"
-    ></admgold24k-personal-card>
+    <div class="container">      
+      <div class="row">
+        <h3>Botones</h3>
+      </div>
+      <div class="row space-between">
+        <admgold24k-button id="primary" text="Aceptar" appearance="primary"></admgold24k-button>
+        <admgold24k-button text="Enviar" appearance="secondary"></admgold24k-button>
+        <admgold24k-button text="Record" appearance="tertiary"></admgold24k-button>
+        <admgold24k-button text="Final" appearance="warning"></admgold24k-button>
+        <admgold24k-button text="Borar" appearance="danger"></admgold24k-button>
+      </div>
+      <div class="row">
+        <h3>
+          Modal
+        </h3>
+        <div class="row">
+          <admgold24k-button id="open-modal" text="Open Modal" appearance="primary"></admgold24k-button>
+          <admgold24k-modal buttons='[{"text": "Confirmar"},{"text": "Cancelar"}]' header="Modal Header" appearance="danger">
+            <p>
+              Your bones don't break, mine do.
+            </p>
+          </admgold24k-modal>
+        </div>      
+      </div>
+      <div class="row">
+        <admgold24k-personal-card
+          first-name="Aga-pito"
+          last-name="Melo Pelaez"
+          resume="Yo soy BATMAN!!!"
+          photo= "https://randomuser.me/api/portraits/men/67.jpg"
+        >
+        </admgold24k-personal-card>        
+      </div>
+      <div class="row">
+        <my-component first="Lakin" last="'Don't call me a framework' JS" class="hydrated"></my-component>
+      </div>
+      <script>
+        var button = document.querySelector('#open-modal');
+        var modal = document.querySelector('admgold24k-modal');
+
+        button.addEventListener('click', function () {
+          modal.isopen = true;
+        });
+
+        modal.addEventListener('action', function () {
+          console.log('Confirmación aceptada');
+          modal.isopen = false;
+        });
+      </script>
+    </div>
+    
     
     <!-- <admgold24k-video-player
       source="https://www.youtube.com/embed/gvMdyJmiDYg"  
