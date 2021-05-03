@@ -10,6 +10,10 @@ export namespace Components {
         "appearance": string;
         "text": string;
     }
+    interface Admgold24kColorPicker {
+        "defaultValue": string;
+        "resettable": boolean;
+    }
     interface Admgold24kModal {
         "appearance": string;
         "buttons": string;
@@ -50,6 +54,12 @@ declare global {
         prototype: HTMLAdmgold24kButtonElement;
         new (): HTMLAdmgold24kButtonElement;
     };
+    interface HTMLAdmgold24kColorPickerElement extends Components.Admgold24kColorPicker, HTMLStencilElement {
+    }
+    var HTMLAdmgold24kColorPickerElement: {
+        prototype: HTMLAdmgold24kColorPickerElement;
+        new (): HTMLAdmgold24kColorPickerElement;
+    };
     interface HTMLAdmgold24kModalElement extends Components.Admgold24kModal, HTMLStencilElement {
     }
     var HTMLAdmgold24kModalElement: {
@@ -76,6 +86,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "admgold24k-button": HTMLAdmgold24kButtonElement;
+        "admgold24k-color-picker": HTMLAdmgold24kColorPickerElement;
         "admgold24k-modal": HTMLAdmgold24kModalElement;
         "admgold24k-personal-card": HTMLAdmgold24kPersonalCardElement;
         "admgold24k-video-player": HTMLAdmgold24kVideoPlayerElement;
@@ -86,6 +97,11 @@ declare namespace LocalJSX {
     interface Admgold24kButton {
         "appearance"?: string;
         "text"?: string;
+    }
+    interface Admgold24kColorPicker {
+        "defaultValue"?: string;
+        "onColorChanged"?: (event: CustomEvent<any>) => void;
+        "resettable"?: boolean;
     }
     interface Admgold24kModal {
         "appearance"?: string;
@@ -122,6 +138,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "admgold24k-button": Admgold24kButton;
+        "admgold24k-color-picker": Admgold24kColorPicker;
         "admgold24k-modal": Admgold24kModal;
         "admgold24k-personal-card": Admgold24kPersonalCard;
         "admgold24k-video-player": Admgold24kVideoPlayer;
@@ -133,6 +150,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "admgold24k-button": LocalJSX.Admgold24kButton & JSXBase.HTMLAttributes<HTMLAdmgold24kButtonElement>;
+            "admgold24k-color-picker": LocalJSX.Admgold24kColorPicker & JSXBase.HTMLAttributes<HTMLAdmgold24kColorPickerElement>;
             "admgold24k-modal": LocalJSX.Admgold24kModal & JSXBase.HTMLAttributes<HTMLAdmgold24kModalElement>;
             "admgold24k-personal-card": LocalJSX.Admgold24kPersonalCard & JSXBase.HTMLAttributes<HTMLAdmgold24kPersonalCardElement>;
             "admgold24k-video-player": LocalJSX.Admgold24kVideoPlayer & JSXBase.HTMLAttributes<HTMLAdmgold24kVideoPlayerElement>;
